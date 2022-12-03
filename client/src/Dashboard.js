@@ -99,7 +99,11 @@ export default function Dashboard({ code }) {
         )}
       </div>
       <div>
-        <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
+        <Player
+          accessToken={accessToken}
+          trackUri={playingTrack?.uri}
+          setPlayingTrack={setPlayingTrack}
+        />
       </div>
     </Container>
   );
