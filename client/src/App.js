@@ -1,5 +1,4 @@
 import Login from "./Login";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./Dashboard";
 
 const code = new URLSearchParams(window.location.search).get("code");
