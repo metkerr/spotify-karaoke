@@ -9,14 +9,14 @@ export default function TrackSearchResult({ track, chooseTrack }) {
     <div
       style={{ cursor: "pointer" }}
       onClick={handlePlay}
-      className="flex mb-3"
+      className="flex mb-3 hover:text-green-500"
     >
       <img
         src={track.albumCover}
         alt={track.title}
         style={{ height: "64px", width: "64px" }}
       />
-      <div className="px-3 text-ellipsis overflow-hidden whitespace-nowrap hover:text-green-500 my-auto">
+      <div className="px-3 text-ellipsis overflow-hidden whitespace-nowrap  my-auto">
         <div title={track.title} className="text-ellipsis overflow-hidden">
           {track.title}
         </div>
