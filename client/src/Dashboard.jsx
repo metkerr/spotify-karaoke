@@ -20,18 +20,22 @@ export default function Dashboard({ code }) {
   function chooseTrack(track) {
     setPlayingTrack(track);
     // setSearch("");
+  }
+
+  useEffect(() => {
+    if (!playingTrack) return;
 
     axios
       .get("http://localhost:3001/lyrics", {
         params: {
-          track: track.title,
-          artist: track.artist,
+          track: playingTrack.title,
+          artist: playingTrack.artist,
         },
       })
       .then((res) => {
         setLyrics(res.data.lyrics);
       });
-  }
+  }, [playingTrack]);
 
   useEffect(() => {
     if (!accessToken) return;
