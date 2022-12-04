@@ -94,6 +94,7 @@ export default function Dashboard({ code }) {
         {searchResult.length === 0 && (
           <div style={{ whiteSpace: "pre" }}>{lyrics}</div>
         )}
+        {console.log(lyrics)}
       </div>
       <div>
         <Player
