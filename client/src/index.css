@@ -4,4 +4,29 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,800;1,500&display=swap');
 
+.animation-scroll-infinite{
+    animation: scroll 7s linear 0s infinite;
+}
+
+/* Scrollbar styling */
+/* width */
+::-webkit-scrollbar {
+    width: 3px !important;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #1e293b !important; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background:  #22c55e !important; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #059669 !important; 
+  }
+
 

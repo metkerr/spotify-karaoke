@@ -5,7 +5,7 @@ const code = new URLSearchParams(window.location.search).get("code");
 
 function App() {
   return (
-    <div className="box-border bg-slate-900 text-white">
+    <div className="box-border bg-slate-900 text-white scroll-smooth">
       {code ? <Dashboard code={code} /> : <Login />}
     </div>
   );

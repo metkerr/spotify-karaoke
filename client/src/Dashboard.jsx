@@ -4,6 +4,7 @@ import SpotifyWebApi from "spotify-web-api-node";
 import TrackSearchResult from "./TrackSearchResult";
 import Player from "./Player";
 import axios from "axios";
+import SpotifyLogo from "./images/logo512.png";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "d787b9a91de6426d9daba4662fc62525",
@@ -14,28 +15,23 @@ export default function Dashboard({ code }) {
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [playingTrack, setPlayingTrack] = useState();
-  const [lyrics, setLyrics] = useState("");
+  const [lyrics, setLyrics] = useState();
 
   function chooseTrack(track) {
     setPlayingTrack(track);
-    setSearch("");
-    setLyrics(track.lyric);
-  }
-
-  useEffect(() => {
-    if (!playingTrack) return;
+    // setSearch("");
 
     axios
       .get("http://localhost:3001/lyrics", {
         params: {
-          track: playingTrack.title,
-          artist: playingTrack.artist,
+          track: track.title,
+          artist: track.artist,
         },
       })
       .then((res) => {
         setLyrics(res.data.lyrics);
       });
-  }, [playingTrack]);
+  }
 
   useEffect(() => {
     if (!accessToken) return;
@@ -50,7 +46,6 @@ export default function Dashboard({ code }) {
 
     spotifyApi.searchTracks(search).then((res) => {
       if (cancel) return;
-      //   console.log(res.body.tracks.items);
       setSearchResult(
         res.body.tracks.items.map((track) => {
           const smallestAlbumCover = track.album.images.reduce(
@@ -74,34 +69,50 @@ export default function Dashboard({ code }) {
   }, [search, accessToken]);
 
   return (
-    <div style={{ height: "100vh" }}>
-      <input
-        type="search"
-        placeholder="What do you want to listen to?"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-
-      <div style={{ overflowY: "auto" }}>
-        {searchResult.map((track) => (
-          <TrackSearchResult
-            track={track}
-            key={track.uri}
-            chooseTrack={chooseTrack}
-          />
-        ))}
-
-        {searchResult.length === 0 && (
-          <div style={{ whiteSpace: "pre" }}>{lyrics}</div>
-        )}
-        {console.log(lyrics)}
-      </div>
-      <div>
-        <Player
-          accessToken={accessToken}
-          trackUri={playingTrack?.uri}
-          setPlayingTrack={setPlayingTrack}
+    <div className="flex min-h-screen">
+      <div className="flex-none w-96 flex-shrink px-7 py-3 max-h-screen">
+        <input
+          type="search"
+          placeholder="What do you want to listen to?"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="text-black px-3 py-2 rounded placeholder:italic placeholder:text-slate-400 placeholder: text-xs w-full"
         />
+        <div className="overflow-y-auto h-5/6 py-3 my-4">
+          {searchResult.map((track) => (
+            <TrackSearchResult
+              track={track}
+              key={track.uri}
+              chooseTrack={chooseTrack}
+            />
+          ))}
+        </div>
+      </div>
+      <div className="flex-1 w-72 ml-2 flex flex-col max-h-screen">
+        <div
+          style={{ whiteSpace: "pre" }}
+          className="mx-5 my-3 overflow-y-auto flex-grow pb-12"
+        >
+          {lyrics ? (
+            lyrics
+          ) : (
+            <div className="text-center pt-56">
+              <img
+                src={SpotifyLogo}
+                className="w-14 mx-auto"
+                alt="spotify-logo"
+              />
+              <h1 className="pt-4 text-2xl font-bold">Spotify Karaoke</h1>
+            </div>
+          )}
+        </div>
+        <div className="flex-none">
+          <Player
+            accessToken={accessToken}
+            trackUri={playingTrack?.uri}
+            setPlayingTrack={setPlayingTrack}
+          />
+        </div>
       </div>
     </div>
   );
