@@ -16,7 +16,7 @@ export default function TrackSearchResult({ track, chooseTrack }) {
         alt={track.title}
         style={{ height: "64px", width: "64px" }}
       />
-      <div className="px-3 text-ellipsis overflow-hidden whitespace-nowrap hover:text-green-500">
+      <div className="px-3 text-ellipsis overflow-hidden whitespace-nowrap hover:text-green-500 my-auto">
         <div title={track.title} className="text-ellipsis overflow-hidden">
           {track.title}
         </div>

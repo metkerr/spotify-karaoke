@@ -70,15 +70,15 @@ export default function Dashboard({ code }) {
 
   return (
     <div className="flex min-h-screen">
-      <div className="flex-none w-96 flex-shrink px-7 py-3 max-h-screen">
+      <div className="flex-none border-r border-slate-800 w-96 flex-shrink pl-7 pr-3 py-3 max-h-screen">
         <input
           type="search"
           placeholder="What do you want to listen to?"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="text-black px-3 py-2 rounded placeholder:italic placeholder:text-slate-400 placeholder: text-xs w-full"
+          className="text-black px-3 py-2 rounded-sm placeholder:italic placeholder:text-slate-400 placeholder: text-xs w-full"
         />
-        <div className="overflow-y-auto h-5/6 py-3 my-4">
+        <div className="overflow-y-auto py-3 my-4" style={{ height: "93%" }}>
           {searchResult.map((track) => (
             <TrackSearchResult
               track={track}
@@ -88,10 +88,10 @@ export default function Dashboard({ code }) {
           ))}
         </div>
       </div>
-      <div className="flex-1 w-72 ml-2 flex flex-col max-h-screen">
+      <div className="flex-1 w-72 flex flex-col max-h-screen">
         <div
-          style={{ whiteSpace: "pre" }}
-          className="mx-5 my-3 overflow-y-auto flex-grow pb-12"
+          style={{ whiteSpace: "pre-wrap" }}
+          className="mx-7 my-3 overflow-y-auto flex-grow pb-12"
         >
           {lyrics ? (
             lyrics
