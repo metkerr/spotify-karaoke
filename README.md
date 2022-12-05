@@ -13,16 +13,19 @@
    
  ---
 
-## **Usage**
-**Clone the repo**
+## **🛠 Usage**
+**Clone the repo 👥**
 
 ```$ git clone https://github.com/metkerr/spotify-karaoke.git```
 
-**Create .env file and insert your API key**
+**Create .env file inside server directory**
 
-```$ .>.env```
+```
+$ cd server
+$ .>.env 
+```
 
-Inside .env file insert this:
+**Insert this on .env file:**
 
 >REDIRECT_URI=http://localhost:3000 \
 CLIENT_ID=**Your CLIENT ID goes here** \
@@ -31,21 +34,25 @@ CLIENT_SECRET=**Your CLEINT SECRET goes here** \
 
 **Install the dependencies for both server & client and then run the system**
 
-Server:
+🏭 Server:
 
-```$ cd server```
+```
+$ cd server
 
-```$ npm install```
+$ npm install
 
-```$ npm run dev```
+$ npm run dev 
+```
 
-Client:
+🌐 Client:
 
-```$ cd client```
+```
+$ cd client
 
-```$ npm install```
+$ npm install
 
-```$ npm start```
+$ npm start
+```
 
 Now the system should be running and you can visit the client on http://localhost:3000
 
