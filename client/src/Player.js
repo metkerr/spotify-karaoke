@@ -12,7 +12,7 @@ export default function Player({ accessToken, trackUri, setPlayingTrack }) {
   return (
     <SpotifyPlayer
       token={accessToken}
-      showSaveIcon
+      syncExternalDevice
       callback={(state) => {
         !state.isPlaying && setPlay(false);
         state.isPlaying &&
@@ -25,6 +25,14 @@ export default function Player({ accessToken, trackUri, setPlayingTrack }) {
       uris={trackUri ? [trackUri] : []}
       name="Spotify Karaoke Web Player"
       //   magnifySliderOnHover
+      styles={{
+        bgColor: "rgb(15 23 42)",
+        sliderTrackColor: "#1e293b",
+        sliderColor: "#22c55e",
+        trackNameColor: "rgb(241 245 249)",
+        trackArtistColor: "rgb(148 163 184)",
+        color: "rgb(209 213 219)",
+      }}
     />
   );
 }

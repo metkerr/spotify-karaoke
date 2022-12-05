@@ -29,4 +29,9 @@
     background: #059669 !important; 
   }
 
+  @media (max-width: 1023px){
+
+    ._InfoRSWP { border-bottom: #22c55e !important;}
+  }
+
 

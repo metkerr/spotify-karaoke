@@ -75,6 +75,16 @@ export default function Dashboard({ code }) {
   return (
     <div className="flex min-h-screen">
       <div className="flex-none border-r border-slate-800 w-96 flex-shrink pl-7 pr-3 py-3 max-h-screen">
+        <div className="flex my-5 mx-2">
+          <img
+            src={SpotifyLogo}
+            className="basis-5 w-9 h-9 m-auto"
+            alt="spotify-logo"
+          />
+          <h1 className="flex-grow m-auto pl-2 text-2xl font-bold">
+            <span className="text-green-500">Spotify</span>&nbsp;Karaoke
+          </h1>
+        </div>
         <input
           type="search"
           placeholder="What do you want to listen to?"
@@ -82,7 +92,7 @@ export default function Dashboard({ code }) {
           onChange={(e) => setSearch(e.target.value)}
           className="text-black px-3 py-2 rounded-sm placeholder:italic placeholder:text-slate-400 placeholder: text-xs w-full"
         />
-        <div className="overflow-y-auto py-3 my-4" style={{ height: "93%" }}>
+        <div className="overflow-y-auto py-3 my-4" style={{ height: "87%" }}>
           {searchResult.map((track) => (
             <TrackSearchResult
               track={track}
@@ -95,7 +105,7 @@ export default function Dashboard({ code }) {
       <div className="flex-1 w-72 flex flex-col max-h-screen">
         <div
           style={{ whiteSpace: "pre-wrap" }}
-          className="mx-7 my-3 overflow-y-auto flex-grow pb-12"
+          className="my-7 px-2 overflow-y-auto text-center flex-grow pb-8"
         >
           {lyrics ? (
             lyrics
