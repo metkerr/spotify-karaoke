@@ -3,6 +3,8 @@
 
  ## Preview:
  ![Spotify Karaoke web preview](/media/spotify-karaoke-preview.gif)
+ 
+ ![Spotify Karaoke web showcase](/media/spotify-karaoke-showcase.png)
 
 
 ### 🚧 **Tech stack**
