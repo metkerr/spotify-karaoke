@@ -2,8 +2,10 @@
  simple karaoke webapp with spotify API
 
  ## Preview:
+ ### Demo: [Live on Vercel](https://spotify-karaoke-web-player.vercel.app/)
+
  ![Spotify Karaoke web preview](/media/spotify-karaoke-preview.gif)
- 
+
  ![Spotify Karaoke web showcase](/media/spotify-karaoke-showcase.png)
 
 
