@@ -4,7 +4,7 @@
  ## Preview:
  ![Spotify Karaoke web preview](/media/spotify-karaoke-preview.gif)
  
- ## Demo:[Live on Vercel](https://spotify-karaoke-web-player.vercel.app/)
+ ### Demo: [Live on Vercel](https://spotify-karaoke-web-player.vercel.app/)
 
 
 ### 🚧 **Tech stack**
